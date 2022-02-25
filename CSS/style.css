@@ -1,0 +1,90 @@
+<style> *{
+box-sizing: border-box;
+  }
+   /* Common*/
+   .d-flex{
+       display:flex;
+   }
+   .justify-between{
+       justify-content: space-between;
+
+   }
+   .justify 
+   .align-center{
+       align-items: center;
+   }
+   .flex-col{
+     flex-direction: column;
+   }
+
+   .main{
+    padding: 0 20px;
+   }
+  /* Start Head*/
+
+  #head #menu-logo{
+      height: 20px;
+  }
+    #head .head-menu-control .left-menu .right-menu{
+      list-style:none;
+      display:flex ;
+      flex-flow: row wrap;
+      margin: 0;
+      background: rgb(124, 128, 129);
+  }
+    #head .head-menu-control .left-menu .center-menu .right-menu{
+    text-transform: uppercase;
+    margin: 0 20px;
+  }
+
+.head-menu-control .left-menu .right-menu a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+.head-menu-control .left-menu .center-menu .right-menu a:hover {
+  background: #a5939d;
+}
+
+.head-menu-control .left-menu .center-menu .right-menu { 
+    text-align: center; 
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255,0.3); 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  }
+  
+
+  /* End Head*/
+
+  /* Start Body*/
+    .col-left{
+      flex-basis:calc(80% - 30px);
+      flex-grow:1;
+    }
+    .col-right{
+      flex-basis:20%
+    }
+    .recently-item-group .recently-item{
+      flex-basis: calc((100% - 30px) /3);
+      height: 220px;
+      background-color: #dedede;
+      border-radius: 5px ;
+    }
+    /* Start Recently*/
+    .box{
+      border-radius: 5px;
+      border:solid 3px #eee;
+      background: white;
+      padding: 10px;}
+    .box-email{
+      margin-bottom: 10px;
+    }
+    /* End Recently*/
+
+  /* End Body*/
+
+  /* Start Footer*/
+  /* End Footer*/
+</style>

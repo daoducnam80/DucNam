@@ -1,0 +1,78 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+   <meta charset="UTF-8"> 
+   <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <title>Document</title> 
+   <script>
+       // Nhap ten sinh vien
+    var students = []; 
+          function nhaphs() { 
+    var student = document.getElementById('student').value; 
+            students.push(student); 
+            document.getElementById("message").innerText = `Bạn đang có ${students.length} học sinh`; 
+            } 
+       // Them hoc sinh
+         function themhs() { 
+        var listStudent = ""; 
+             for (let i = 0; i < students.length; i++) { 
+             listStudent += "<li>" + students[i] + "</li>"; 
+          } 
+        document.getElementById("list-student").innerHTML = listStudent; 
+            } 
+        // Xu ly ket qua
+        function themlop() {
+            var a = document.getElementById('dslop').value.trim();
+            var b = document.getElementById('gvcn').value.trim();
+            document.getElementById('err-a').style.display= (a == '') ? "block" : "none";
+            document.getElementById('err-b').style.display= (b == '') ? "block" : "none";
+            if(a == '' || b == ''){
+                    return; 
+            }
+
+    </script>
+</head> 
+
+<body> 
+    <div> 
+        <div>
+            <h1>THÔNG TIN LỚP HỌC</h1>
+        <button onclick="tenlop()">LỚP</button> 
+        <input type="text" id="dslop"> 
+        <button onclick="gvcn()">GIÁO VIÊN CHỦ NHIỆM</button>
+        <input type="text" id="gvcn"> 
+        <button onclick="themlop()">THÊM</button>
+        <p id="err-a" hidden>Bạn cần nhập ô 1</p>
+        <p id="err-b" hidden>Bạn cần nhập ô 2</p>
+
+        </div> 
+
+        <div> 
+            <h1>THÔNG TIN SINH VIÊN</h1>
+            <button onclick="dslop()">DANH SÁCH LỚP</button>        
+            <select>
+                <option>Lớp 01</option>
+                <option>Lớp 02</option>
+            </select>
+
+            <div> 
+                <button onclick="nhaphs()">HỌ TÊN SINH VIÊN</button>
+                <input type="text" id="student"> 
+                <button onclick="namsinh()">Năm Sinh</button>
+                <select>
+                    <option>ns01</option>
+                    <option>ns02</option>
+                </select>
+                <button onclick="themhs()">THÊM</button> 
+            </div> 
+            <div> 
+                <p id="message"></p> 
+                <ol id="list-student"> 
+                </ol> 
+            </div> 
+        </div> 
+</body> 
+
+
+</html> 

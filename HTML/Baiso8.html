@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <input id="ipt-a" type="number"/>
+    <input id="ipt-b" type="number"/>
+
+    <p id="err-a" hidden>Bạn cần nhập ô 1</p>
+    <p id="err-b" hidden>Bạn cần nhập ô 2</p>
+    <button onclick="inKetQua('+')">+</button>
+    <button onclick="inKetQua('-')">-</button>
+    <button onclick="inKetQua('*')">*</button>
+    <button onclick="inKetQua('/')">/</button>
+    <h1 id="result"></h1>
+    <script>
+        function inKetQua(action){
+            //document.getElementById('result').innerText ='';
+            var a = document.getElementById('ipt-a').value.trim();
+            var b = document.getElementById('ipt-b').value.trim();
+
+            document.getElementById('err-a').style.display= (a == '') ? "block" : "none";
+            document.getElementById('err-b').style.display= (b == '') ? "block" : "none";
+
+
+            if(a == '' || b == ''){
+                    return; 
+            }
+            if(action === '/' && b == 0){
+                result = "Bạn không thể chia cho 0";
+            }else{
+                result = "Kết quả là: " + eval(a + action + ' '+b);
+            }
+            setResult(result);
+        }
+        function setResult(x){
+            document.getElementById('result').innerText = x;
+        }
+    </script>
+</body>
+</html>

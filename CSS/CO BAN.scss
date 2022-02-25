@@ -1,0 +1,539 @@
+/*I BACK GROUND*/
+
+h1 {background-color: lightblue;
+}
+
+body { 
+background-image: url("paper.gif");}
+
+body {
+background-image: url("img_tree.png");
+background-repeat: repeat-y;
+}
+
+body {
+background-image: url("img_tree.png");
+background-repeat: no-repeat;
+background-position: top right;}
+
+body {
+background-image: url("img_tree.png");
+background-attachment: fixed;}
+
+/* II CSS BORDER*/
+
+p {
+  border-style: dotted;
+  border-width: 4px;
+  border-color:red;
+}
+
+p {
+  border: 2px solid red;
+  border-radius: 5px;}
+
+/*3 BOX MODEL  */
+
+*{box-sizing:border-box;}
+
+div {
+outline-style: solid;  
+outline-width: 5px;}
+
+/*4 CSS TEXT  */
+
+a {text-decoration: none;
+}
+
+h1 {text-transform: uppercase};
+
+p {text-transform: capitalize;}
+
+p {text-indent: 20px;}
+
+p {text-align: center;}
+
+/*5 FONT CHU CSS*/
+
+h1 {font-family: Verdana;}
+
+h1 {font-style: italic;}
+
+h1 {font-size: 50px;}
+
+p {font-weight: bold;}
+
+p {font-variant: small-caps;}
+
+
+/* 6 STYLE LINK*/
+a:visited
+ {color: red;
+}
+
+/* unvisited link */
+a:link
+ {text-decoration: none;}
+
+/* visited link */
+a:visited
+ {text-decoration: none;}
+
+/* mouse over link */
+a:hover
+ {text-decoration: underline;}
+
+/* 7 CSS LIST*/
+
+ul {
+list-style-type: square;}
+
+ul {
+list-style-image: url("bling.jpg");
+}
+
+ul {
+list-style-type: none;}
+
+ol { 
+list-style-type: upper-roman;
+}
+
+/*  8 CSS VI TRI */
+
+h1 { position: fixed;  top: 50px; right: 10px;
+}
+
+
+.myheader{
+position: relative;top: 
+50px;}
+
+/* 9 Z INDEX*/
+
+#mytitle
+ {position: absolute;
+  top: 0;
+  z-index: 1;}
+
+#myintro
+ {position: absolute;
+  top: 0;
+  z-index: 0;}
+
+
+/* 10 OVER FLOW   */
+
+.intro {
+  width: 200px;
+  height: 70px;
+  overflow: scroll;
+}
+
+.intro {
+  width: 200px;
+  height: 70px;
+  overflow-x: scroll;
+}
+
+
+/* 11 PSEUDO CLASS */
+
+input:focus
+ {background-color: red;}
+
+/* 12 PSEUDO ELEMENT */
+
+.intro::first-line
+ {background-color: red;
+}
+
+.intro::first-letter
+ {background-color: red;
+}
+
+p::before {
+content: url('smiley.gif');}
+p::after {  
+content: url('smiley.gif');}
+
+
+
+/* 12 CSS OPACITY*/
+
+img {opacity: 0.4;
+}
+img:hover {
+  opacity: 1.0;}
+
+/* 12 ATTRIBUTE SELECTOR */
+img[title~="blue"]
+ {border: 5px solid red;
+}
+
+img[title^="blue"]
+ {border: 5px solid red;
+}
+
+img[title$="flower"]
+ {border: 5px solid red;
+}
+
+img[title$="flower"]
+ {border: 5px solid red;
+}
+
+/* 13 CSS ROUNDED BO TRON*/
+
+div {
+  background: red;
+  border-bottom-left-radius: 10px;  
+}
+
+div {
+  border: 10px solid transparent;
+  border-image: url(border.png) 30 round;
+}
+
+div {
+  border-image-source: url(border.png);
+  border-image-repeat: stretch;border-image-slice: 30;
+}
+
+/* 12 CSS BACK GROUND*/
+
+body {
+  background-image: 
+url('img2.gif'), url('img1.gif');}
+
+body {
+  background-image: url('img1.gif');
+  background-size: 100px 80px;background-repeat: no-repeat;}
+
+body {
+  background-image: url('img1.gif'), url('img2.gif');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;}
+
+#example1 {
+  padding: 20px;
+  background-image: url('img1.gif');
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+
+/* 14 CSS COLOR*/
+
+h1 {
+  background-color: 
+rgba(255, 0, 0, 1.0);}
+
+h1 {
+  background-color: 
+hsl(0, 100%, 50%);
+}
+</style>
+
+<style>
+h1 {
+  background-color: 
+hsla
+(0, 100%, 50%, 0.3);
+}
+</style>
+
+<style>
+h1 {
+  background-color: rgb(255, 0, 0);
+  
+opacity
+: 0.3;
+}
+</style>
+
+/* 15 GRADIENTS */
+
+div { 
+background-image: linear-gradient(white, green);}
+
+div {
+  background-image: linear-gradient(to bottom right, white, green);
+}
+
+div {
+  background-image: linear-gradient(70deg, white, green);
+}
+
+div {
+  background-image: radial-gradient(white, green);
+}
+
+div {
+  background-image: radial-gradient(
+  circle, white, green);
+}
+
+/* 17 SHADOW EFFECTS */
+
+h1 {
+text-shadow
+: 2px 2px;
+}
+
+h1 {
+  text-shadow: 
+2px 2px 5px green;
+}
+
+h1 {
+  text-shadow: 2px 2px 5px green, 3px 3px 10px red;
+}
+
+div {
+box-shadow: 10px 10px;
+}
+
+/* 18 TEXT EFFECTS */
+
+p {
+  white-space: nowrap; 
+  width: 200px; 
+  border: 1px solid #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p {
+  width: 150px; 
+  border: 1px solid #000000;
+  word-wrap: break-word;}
+
+
+/* 19 WEB FONTS */
+
+<style>
+@font-face
+ {
+  font-family: sansation;
+  src: url('sansation_light.woff');
+}
+
+<style>
+@font-face {
+  font-family: sansation;
+  src: url('sansation_light.woff');
+}
+
+@font-face {
+  font-family: sansation;
+  src: url('sansation_bold.woff');
+  font-weight: bold;
+}
+
+/* 20 2D TRANSFORMS */
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  border: 1px solid black;
+  transform: translate(100px, 200px);
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  background-color: lightblue;
+  border: 1px solid black;
+  transform: rotate(45deg);
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  background-color: lightblue;
+  border: 1px solid black;
+  transform: scale(0.5, 2);
+}
+
+
+/* 20 3D TRANSFORMS */
+
+div {
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  background-color: lightblue;
+  border: 1px solid black;
+  transform: skew(20deg, 30deg);
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  border: 1px solid black;
+  transform: rotateX(150deg);
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  border: 1px solid black;
+  transform: 
+  rotateY(120deg);
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+}
+
+div:hover {
+  width: 300px;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+  transition-timing-function: ease-in-out;
+}
+
+div:hover {
+  width: 300px;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s;
+  transition-delay: 0.5s;
+}
+
+div:hover {
+  width: 300px;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: background 2s, transform 2s;
+}
+
+div:hover {
+  background: blue;
+  transform: rotate(180deg);
+}
+
+
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: 
+  width 2s ease-in-out 0.5s;
+}
+
+div:hover {
+  width: 400px;
+}
+
+
+/* 22 ANIMATIONS TRANSFORMS */
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 2s;
+}
+
+@keyframes example {
+  from {
+background-color: red;}
+  to {
+background-color: blue;}
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+}
+
+@keyframes example {
+  0%   {
+left:0px; top:0px;}
+  25%  {
+left:0px; top:200px;}
+  50%  {
+left:200px; top:200px;}
+  75%  {
+left:200px; top:0px;}
+  100% {
+left:0px; top:0px;}
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0%   {background-color: red; left:0px;}
+  50%  {background-color: yellow; left:200px;}
+  100% {background-color: red; left:0px;}
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;   
+}
+
+@keyframes example {
+  0%   {background-color: red; left:0px; top:0px;}
+  25%  {background-color: blue; left:0px; top:200px;}
+  50%  {background-color: green; left:200px; top:200px;}
+  75%  {background-color: yellow; left:200px; top:0px;}
+  100% {background-color: red; left:0px; top:0px;}
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes example {
+  0%   {background-color: red; left:0px;}
+  50%  {background-color: yellow; left:200px;}
+  100% {background-color: red; left:0px;}
+}

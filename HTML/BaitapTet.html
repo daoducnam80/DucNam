@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+        }
+        .justify-center{
+            justify-content: center;
+        }
+        .justify-arround{
+            justify-content: space-around;
+        }
+        .justify-between{
+            justify-content: space-between;
+        }
+        .align-items-center{
+            align-items: center;
+        }
+        .d-flex{
+            display: flex;
+        }
+        .f-column{
+            flex-direction: column;
+        }
+        .group-menu{
+            background: white;
+            width: 100%;
+        }
+        #form-sign{
+            width: 370px;
+            text-align: center;
+            background-image: url('../bg.jpg');
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        #form-sign::before{
+            width: 100%;
+            opacity: .5;
+            height: 100%;
+            content:'';
+            background: black;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            position: absolute;
+        }
+
+        #form-login{
+            width: calc(100% - 370px);
+            padding: 30px;
+            min-width: 350px;
+            position: relative;
+            flex: 1;
+        }
+        .t-center{
+            text-align: center;
+        }
+        .social-group ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .mb-3{
+            margin-bottom: 30px;
+        }
+        .mb-1{
+            margin-bottom: 10px;
+        }
+        #form-login > *{
+            max-width: 420px;
+            width: 100%;
+        }
+        input{
+            border: none;
+            border-bottom: solid 1px silver;
+            outline: none;
+            width: 75%;
+            min-height: 30px;
+        }
+        #form-login .row{
+            min-height: 40px;
+        }
+        i.fa{
+            font-size: 55px;
+        }
+        .insta{
+            background: -webkit-linear-gradient(rgb(236, 110, 26), rgb(152, 9, 235));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .linkedin{
+            color:#0270ad;
+        }
+        .twitter{
+            color: #1c96e8;
+        }
+        .fb{
+            color:#395693;
+        }
+        #form-login button{
+            border-radius: 999px;
+            height: 40px;
+            width: 75%;
+            border: none;
+            cursor: pointer;
+        }
+        .sign-in{
+            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .font-big{
+            font-size: 41px;
+        }
+        .font-normal{
+            font-size: 17px;
+        }
+        .t-white{
+            color: white;
+        }
+        #form-sign button{
+            width: 120px;
+            height: 40px;
+            border-radius: 999px;
+            border-radius: 999px;
+            background: transparent;
+            border: solid 1px white;
+        }
+        .action{
+            min-height: 250px;
+        }
+        .description p{
+            line-height: 30px;
+        }
+
+        @media screen and (min-width: 100px) {
+            .xs{
+                display: block;
+            }
+            .md{
+                display: none;
+            }
+            i.fa{
+                font-size: 35px;
+            }
+            body{
+                padding: 0;
+                background-image: none;
+            }
+            .group-menu{
+                box-shadow: none;
+            }
+        }
+        @media screen and (min-width: 620px) {
+            i.fa{
+                font-size: 55px;
+            }
+            body{
+                padding: 50px 120px;
+                background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            }
+            .group-menu{
+                box-shadow: 5px 6px 18px #404040;
+            }
+        }
+        @media screen and (min-width: 1000px) {
+            .xs{
+                display: none;
+            }
+            .md{
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex justify-center">
+    <div class="group-menu d-flex">
+        <div id="form-login" class="d-flex f-column align-items-center justify-arround">
+            <h1 class="t-center font-big">Sign in</h1>
+            <div class="row t-center mb-3">
+                <label class="mb-3 font-normal">Username</label><br/>
+                <input />
+            </div>
+            <div class="row t-center mb-3">
+                <label class="mb-3 font-normal">Password</label><br/>
+                <input />
+            </div>
+            <div class="row d-flex f-column align-items-center mb-3">
+                <button class="font-normal t-white sign-in mb-1">Sign in</button>
+                <button class="font-normal xs">Sign Up</button>
+            </div>
+            <div class="row t-center mb-3">
+                <a><strong class="font-normal">Forgot Password?</strong></a>
+            </div>
+            <div class="row">
+                <div class="social-group">
+                    <ul class="d-flex align-items-center justify-between">
+                        <li><i class="fa fa-facebook-square fb"></i></li>
+                        <li><i class="fa fa-twitter-square twitter"></i></li>
+                        <li><i class="fa fa-linkedin-square linkedin"></i></li>
+                        <li><i class="fa fa-instagram insta"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="form-sign" class="d-flex f-column align-items-center justify-between md">
+            <div class="description t-white">
+                <h1 class="font-big">New here?</h1>
+                <p class="font-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa beatae quae.</p>
+            </div>
+            <div class="action t-white">
+                <button class="t-center t-white  font-normal">Sign Up</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

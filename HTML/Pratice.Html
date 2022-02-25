@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shop Áo quần</title>
+  <!-- External CSS -->
+  <!-- SASS / SCSS / LESS/ PUG -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* B1 */
+    #card {
+      background-color: #08a1da;
+      padding: 30px;
+      color: white;
+      max-width: 35%;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    #card .btn {
+      min-width: 180px;
+      height: 40px;
+      background: transparent;
+      border: solid 1px white;
+      border-radius: 4px;
+      color: white;
+      margin-top: 10px;
+      font-size: 17px;
+    }
+
+    /* B2 */
+    #border-btn button {
+      min-width: 250px;
+      border: none;
+      border-top-right-radius: 999px;
+      border-bottom-right-radius: 999px;
+      background: #674ab8;
+      color: white;
+      font-size: 17px;
+      border-left: solid 10px #bbfe00;
+      height: 60px;
+    }
+
+    /* B3 */
+    #box-comment {
+      background: #49ae00;
+      padding: 30px;
+      max-width: 250px;
+      min-height: 100px;
+      color: white;
+    }
+
+    #box-comment .box-white {
+      width: 100%;
+      background: white;
+      min-height: 45px;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+    }
+
+    #box-comment .box-white .circle {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: red;
+      margin: 3px;
+    }
+
+    #box-comment .box-white .circle:nth-child(1) {
+      background: #0044e2;
+    }
+
+    #box-comment .box-white .circle:nth-child(2) {
+      background: #396bfc;
+    }
+
+    #box-comment .box-white .circle:nth-child(3) {
+      background: #6990fc;
+    }
+
+    #box-comment .box-white .circle:nth-child(4) {
+      background: #9eb7ff;
+    }
+
+    /* B4 */
+    #play-control .limit-line {
+      max-width: 220px;
+      height: 1px;
+      border-bottom: solid 5px #1a3658;
+      position: relative;
+      border-radius: 999px;
+    }
+
+    #play-control .circle {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #396bfc;
+      position: absolute;
+      top: -8.5px;
+      left: 25%;
+    }
+
+    /* B5 */
+    #list-noti {
+      max-width: 220px;
+      text-align: center;
+    }
+
+    #list-noti p {
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    #list-noti ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #list-noti ul li {
+      height: 50px;
+      padding: 10px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: solid 1px #ddd;
+      font-size: 13px;
+    }
+
+    #list-noti ul li.non-read {
+      background: #e0ecf8;
+    }
+
+    /* B6 */
+    #gradient-circle {
+      max-width: 180px;
+      text-align: center;
+      font-size: 17px;
+    }
+
+    #gradient-circle .circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background-image: linear-gradient(140deg, #4e9dbc 0%, #714a99 100%);
+      filter: drop-shadow(8px 10px 6px #7293e5);
+    }
+
+    /* B7 */
+    #progress-bar {
+      max-width: 350px;
+    }
+
+    #progress-bar .progress {
+      position: relative;
+      background: #bacbf7;
+      height: 30px;
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    #progress-bar .progress::before {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: 65%;
+      background: #222bc6;
+      content: '65%';
+      border-radius: 999px;
+      display: flex;
+      font-size: 13px;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    /* B8 */
+    #checkbox label {
+      height: 50px;
+      width: 50px;
+      background: blue;
+      display: block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    #checkbox input:checked~label::before {
+      position: absolute;
+      display: block;
+      content: '✓';
+      font-size: 60px;
+      color: red;
+      top: -25px;
+      left: 5px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Bài 1</h1>
+  <div id="card">
+    <div class="close">
+      <span class="left"></span>
+      <span class="right"></span>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Id porro optio reprehenderit quaerat natus adipisci,
+      quidem eligendi totam quos similique quo repellendus iste maxime aliquam nisi quia architecto distinctio. Ad.
+      Iusto explicabo molestias illum quis, magnam voluptates laudantium laboriosam dolore non voluptate vel hic dolor
+      quia minima. Neque sit voluptatem commodi incidunt sapiente voluptas cumque quaerat voluptates, nobis iusto
+      voluptatum.
+    </p>
+    <button class="btn">Click me</button>
+  </div>
+
+  <h1>Bài 2</h1>
+  <div id="border-btn">
+    <button>Click me !</button>
+  </div>
+
+  <h1>Bài 3</h1>
+  <div id="box-comment">
+    <span>Comment:</span>
+    <div class="box-white">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+
+  <h1>Bài 4</h1>
+  <div id="play-control">
+    <div class="limit-line">
+      <div class="circle"></div>
+    </div>
+  </div>
+
+  <h1>Bài 5</h1>
+  <div id="list-noti">
+    <p>List Notification</p>
+    <ul>
+      <li>Noti 1 </li>
+      <li class="non-read">Noti 2 </li>
+      <li class="non-read">Noti 3 </li>
+      <li>Noti 4 </li>
+    </ul>
+  </div>
+
+  <h1>Bài 6</h1>
+  <div id="gradient-circle">
+    <div class="circle">
+
+    </div>
+    <p>Hello Guys</p>
+  </div>
+
+  <h1>Bài 7</h1>
+  <div id="progress-bar">
+    <div class="progress">
+    </div>
+  </div>
+
+  <h1>Bài 8</h1>
+  <div id="checkbox">
+    <input type="checkbox" id="checkbox-main" hidden />
+    <label for="checkbox-main">
+
+    </label>
+  </div>
+</body>
+
+</html>

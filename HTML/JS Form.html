@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .j-center {
+            justify-content: center;
+        }
+
+        .j-arround {
+            justify-content: space-around;
+        }
+
+        .j-between {
+            justify-content: space-between;
+        }
+
+        .a-center {
+            align-items: center;
+        }
+
+        #class,
+        #student,
+        #result {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            height: 30px;
+            min-width: 220px;
+            margin-top: 10px;
+            outline: none;
+        }
+
+        select {
+            height: 30px;
+            min-width: 220px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .error-message{
+            color: red;
+        }
+        .btn {
+            min-width: 120px;
+            color: white;
+            background-color: blue;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mt-10 {
+            margin-top: 10px;
+        }
+
+        #list-years {
+            min-width: 50px;
+        }
+
+        .content {
+            padding: 0 30px;
+        }
+        .require{
+            color: red;
+        }
+
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table td,
+        table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #ddd;
+        }
+
+        table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #007db8;
+            color: white;
+        }
+    </style>
+    <div id="class">
+        <h2>Thông tin lớp học</h2>
+        <div class="content d-flex flex-wrap j-between">
+            <div class="content-item">
+                <label>Lớp <span class="require">*</span></label><br />
+                <div>
+                    <input id="ipt-class" />
+                    <p class="error-message" hidden>Bạn cần phải nhập thông tin này</p>
+                </div>
+            </div>
+            <div class="content-item">
+                <label>Giáo viên chủ nhiệm <span class="require">*</span></label><br />
+                <div>
+                    <input id="ipt-teacher" />
+                    <p class="error-message" hidden>Bạn cần phải nhập thông tin này</p>
+                </div>
+            </div>
+            <div class="content-item d-flex a-center">
+                <button class="btn" style="margin-top: 23px" id="btn-class">Thêm</button>
+            </div>
+        </div>
+        <hr />
+    </div>
+    <div id="student">
+        <h2>Thông tin sinh viên</h2>
+        <div class="content d-flex flex-wrap j-between">
+            <div class="content-item">
+                <label>Danh sách Lớp <span class="require">*</span></label><br />
+                <div>
+                    <select id="list-class"></select>
+                    <p style="color: #007db8;">Đang có <span class="msg-total">0</span> học sinh</p>
+                </div>
+            </div>
+            <div class="content-item">
+                <label>Tên sinh viên <span class="require">*</span></label><br />
+                <div>
+                    <input id="ipt-student" />
+                    <p class="error-message" hidden>Bạn cần phải nhập thông tin này</p>
+                </div>
+            </div>
+            <div class="content-item">
+                <label>Năm sinh</label><br />
+                <div>
+                    <select id="list-years"></select>
+                </div>
+            </div>
+            <div class="content-item d-flex a-center">
+                <button class="btn" style="margin-top: -20px" id="btn-student">Thêm</button>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+    <div id="result">
+        <h2>Danh sách sinh viên</h2>
+        <small style="color: #007db8;padding: 0 30px;">
+            Tổng số học sinh hiện tại: <span class="msg-total">0</span> học sinh</small>
+        <div class="content d-flex flex-wrap j-between">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên</th>
+                        <th>Năm sinh</th>
+                    </tr>
+                </thead>
+                <tbody id="result-table">
+                    <tr><td style='text-align: center' colspan='3'>Không có học sinh nào</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        var funcs = {
+            arrayClass: [],
+            createDropdownYears: function (start, end) {
+                var options = '';
+                for (var i = start; i < end; i++) {
+                    options += `<option value='${i}'>${i}</option>`;
+                }
+                return options;
+            },
+            createDropdownObj: function (obj, key_text, key_value) {
+                var options = '';
+                for (var item of obj) {
+                    options += `<option value='${item[key_value]}'>${item[key_text]}</option>`;
+                }
+                return options;
+            },
+            addStudentInfo: function () {
+                if (this.arrayClass.length > 0) {
+                    let classSelected = document.getElementById("list-class").value;
+                    let studentName = document.getElementById("ipt-student").value.trim();
+                    let bod = document.getElementById("list-years").value;
+                    if(studentName == ''){
+                        document.getElementById('ipt-student').parentElement.lastElementChild.style.display="block";
+                        return;
+                    }else{
+                        document.getElementById('ipt-student').parentElement.lastElementChild.style.display="none";
+
+                    }
+                    let classFilter = this.arrayClass.filter(function (e) {
+                        return e.id == classSelected
+                    });
+                    let stt = classFilter[0].students.length + 1;
+                    classFilter[0].students.push({
+                        studentName, bod, stt
+                    });
+                    document.getElementById("ipt-student").value="";
+                    this.updateTable();
+                } else {
+                    alert('Bạn cần phải thêm ít nhất 1 lớp');
+                }
+            },
+            addClassInfo: function () {
+                let id = this.arrayClass.length + 1;
+                let className = document.getElementById("ipt-class").value.trim();
+                let teacherName = document.getElementById("ipt-teacher").value.trim();
+                let isValid = true;
+                if(className == ''){
+                    document.getElementById('ipt-class').parentElement.lastElementChild.style.display="block";
+                    isValid=false;
+                }else{
+                    document.getElementById('ipt-class').parentElement.lastElementChild.style.display="none";
+                }
+                if(teacherName == ''){
+                    document.getElementById('ipt-teacher').parentElement.lastElementChild.style.display="block";
+                    isValid=false;
+                }else{
+                    document.getElementById('ipt-teacher').parentElement.lastElementChild.style.display="none";
+                }
+                if(isValid){
+                    document.getElementById('btn-class').style.marginTop="23px";
+                    this.arrayClass.push({
+                        id, className, teacherName, students: []
+                    });
+                    document.getElementById("ipt-class").value="";
+                    document.getElementById("ipt-teacher").value=""
+                    this.updateListClass();
+                }else{
+                    document.getElementById('btn-class').style.marginTop="-20px";
+                }
+            },
+            updateListClass: function () {
+                document.getElementById('list-class').innerHTML = this.createDropdownObj(this.arrayClass, "className", "id");
+            },
+            onchangeClass: function () {
+                this.updateTable();
+            },
+            updateTable: function () {
+                let classSelected = document.getElementById("list-class").value;
+                let classFilter = this.arrayClass.filter(function (e) {
+                    return e.id == classSelected
+                });
+                let stringBody = "";
+                let total=classFilter[0].students.length;
+                if( total > 0){
+                    for (var items of classFilter[0].students) {
+                        stringBody +=
+                            `<tr>
+                            <td>${items.stt}</td>
+                            <td>${items.studentName}</td>
+                            <td>${items.bod}</td>
+                        </tr>`;
+                    }
+                }else{
+                    stringBody = "<tr><td style='text-align: center' colspan='3'>Không có học sinh nào</td></tr>";
+                }
+                
+                document.getElementById("result-table").innerHTML = "";
+                document.getElementById("result-table").innerHTML = stringBody;
+                document.getElementsByClassName('msg-total')[0].innerText=total;
+                document.getElementsByClassName('msg-total')[1].innerText=total;
+            },
+            init: function () {
+                var self = this;
+                document.getElementById('list-years').innerHTML = this.createDropdownYears(1900, new Date().getFullYear() + 1);
+                document.getElementById('btn-class').addEventListener('click', function () {
+                    self.addClassInfo();
+                });
+
+                document.getElementById('btn-student').addEventListener('click', function () {
+                    self.addStudentInfo();
+                });
+                document.getElementById('list-class').addEventListener('change', function () {
+                    self.onchangeClass();
+                });
+            },
+        }
+        funcs.init();
+
+    </script>
+</body>
+
+</html>
